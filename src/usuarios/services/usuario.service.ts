@@ -20,6 +20,9 @@ export class UsuarioService {
         const usuario = await this.usuarioRepository.findOne({
             where: {
                 id
+            },
+            relations: {
+                produto: true
             }
         });
 
@@ -34,6 +37,9 @@ export class UsuarioService {
         return await this.usuarioRepository.findOne({
             where: {
                 usuario: usuario
+            },
+            relations: {
+                produto: true
             }
         })
     }

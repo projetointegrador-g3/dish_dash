@@ -11,7 +11,9 @@ export class ProdutoService{
     ){}
 
     async findAll(): Promise<Produto[]>{
-        return this.pordutoReposiroy.find()
+        return this.pordutoReposiroy.find({
+            relations: {categoria: true}
+        })
     }
 
 
@@ -19,7 +21,8 @@ export class ProdutoService{
      const produto = await this.pordutoReposiroy.findOne({
             where: {
                 id
-            }
+            },
+            relations: {categoria: true}
         })
 
         if(!produto)
@@ -32,7 +35,8 @@ export class ProdutoService{
         const produto = await  this.pordutoReposiroy.find({
             where: {
                 nome: ILike(`%${nome}%`)
-            }
+            },
+            relations: {categoria: true}
         })
         if (produto.length === 0) {  
             throw new HttpException(`⚠️ Nenhum resultado encontrado com o ${nome}`, HttpStatus.NOT_FOUND);  // Trate o erro conforme necessário  
