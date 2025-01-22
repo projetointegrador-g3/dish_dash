@@ -1,5 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Usuario } from './usuarios/entities/usuario.entity';
+import { Categoria } from './categorias/entities/categoria.entity';
+import { Produto } from './produtos/entities/produto.entity';
+import { UsuarioModule } from './usuarios/usuario.module';
+import { CategoriaModule } from './categorias/categoria.module';
+import { ProdutoModule } from './produtos/produto.module';
 
 @Module({
   imports: [
@@ -10,9 +16,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_dishdash',
-      entities: [],
+      entities: [Usuario, Categoria, Produto],
       synchronize: true,
-    })
+    }),
+    UsuarioModule,
+    CategoriaModule,
+    ProdutoModule,
   ],
   controllers: [],
   providers: [],
