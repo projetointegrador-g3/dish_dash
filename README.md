@@ -1,99 +1,183 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# DishDash - Backend 
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<br />
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<div align="center">
+    <img src="https://i.imgur.com/wvnegmI.png" title="source: imgur.com" width="50%"/>
+</div>
 
-## Project setup
 
-```bash
-$ npm install
+
+<br /><br />
+
+## 1. Descrição
+
+O projeto **DishDash** é o desenvolvimento de um backend robusto e escalável para um e-commerce de alimentos. Utilizando **TypeScript** e o framework **NestJS**, o sistema visa proporcionar uma experiência **eficiente e segura** para a administração do catálogo de produtos, usuários e categorias, com foco em facilidade de uso e controle de informações.
+
+- ### Funcionalidades do projeto
+
+  1. **Gerenciamento de Categorias**:
+     - Permite adicionar novas categorias ao sistema com as seguintes informações:
+       - **ID**
+       - **Nome**
+       - **Descrição**
+     - Consulta de Categorias:
+       - Listagem de todas categorias.
+       - Busca por nome e descrição.
+     - Atualização de Dados:
+       - Alterar nome ou descrição de uma categoria existente.
+  2. **Gerenciamento de Produtos**:
+     - Permite adicionar novos produtos ao sistema com as seguintes informações:
+       - **ID**
+       - **Nome**
+       - **Preço**
+       - **Foto**
+       - **Informações**
+       - **Categoria**
+       - **Usuário**
+     - Consulta de Produtos:
+       - Busca avançada por nome, categoria e preço.
+       - Visualização detalhada do perfil de um produto.
+     - Atualização de Dados:
+       - Alterar nome, preço, informações ou foto do produto.
+  3. **Gerenciamento de Usuários**:
+     - Permite adicionar novos usuários ao sistema com as seguintes informações:
+       - **ID**
+       - **Nome**
+       - **Usuário**
+       - **Senha**
+       - **Foto**
+     - Consulta de Usuários:
+       - Busca avançada por nome e usuário.
+       - Visualização detalhada do perfil de um usuário.
+     - Atualização de Dados:
+       - Alterar informações cadastrais, como nome, usuário ou foto.
+
+
+------
+
+<br>
+
+## 2. Sobre esta API
+
+<strong>Nest (NestJS)</strong> é uma estrutura para a construção de aplicativos Node.js do lado do servidor eficientes e escalonáveis. Ele usa JavaScript progressivo, é construído e oferece suporte total a TypeScript (mas ainda permite que os desenvolvedores codifiquem em JavaScript puro) e combina elementos de OOP (Programação Orientada a Objetos), FP (Programação Funcional) e FRP (Programação Funcional Reativa).
+Nos bastidores, o Nest faz uso de estruturas robustas de servidor HTTP como o Express (o padrão) e, opcionalmente, pode ser configurado para usar o Fastify também!
+
+O Nest fornece um nível de abstração acima desses Node.js comuns frameworks (Express/Fastify), mas também expõe suas APIs diretamente ao desenvolvedor. Isso dá aos desenvolvedores a liberdade de usar uma infinidade de módulos de terceiros disponíveis para a plataforma subjacente.
+
+### 2.1. Principais Funcionalidades
+
+- Estrutura Modular
+- Suporte a TypeScript
+- Injeção de dependências
+- Testes facilitados
+- Controlleres e Rotas
+- Validação e serialização
+- Integração com bibliotecas externas
+
+
+------
+
+<br>
+
+## 3. Diagrama de Classes
+
+# 
+
+---
+
+```mermaid
+---
+config:
+  theme: dark
+  layout: dagre
+---
+
+classDiagram
+    class Categoria {
+        id: number
+        nome: string
+        descricao: string
+        produto: Produto[]
+    }
+
+    class Produto {
+        id: number
+        nome: string
+        preco: number
+        foto: string
+        informacoes: string
+        categoria: Categoria
+        usuario: Usuario
+    }
+
+    class Usuario {
+        id: number
+        nome: string
+        usuario: string
+        senha: string
+        foto: string
+        produto: Produto[]
+    }
+
+    Categoria "1" --> "many" Produto : contém
+    Produto "many" --> "1" Categoria : pertence a
+    Produto "many" --> "1" Usuario : criado por
+    Usuario "1" --> "many" Produto : possui
 ```
 
-## Compile and run the project
+------
 
-```bash
-# development
-$ npm run start
+<br>
 
-# watch mode
-$ npm run start:dev
+## 4. Diagrama Entidade-Relacionamento (DER)
 
-# production mode
-$ npm run start:prod
-```
 
-## Run tests
 
-```bash
-# unit tests
-$ npm run test
+<div align="center">
+    <img src="https://i.imgur.com/NZ7cDkA.png" title="DER">
+</div>
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
 
-## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+------
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+<br>
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+## 5. Tecnologias utilizadas
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+| Item                          | Descrição  |
+| ----------------------------- | ---------- |
+| **Servidor**                  | Node JS    |
+| **Linguagem de programação**  | TypeScript |
+| **Framework**                 | Nest JS    |
+| **ORM**                       | TypeORM    |
+| **Banco de dados Relacional** | MySQL      |
 
-## Resources
+------
 
-Check out a few resources that may come in handy when working with NestJS:
+<br>
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 6. Configuração e Execução
 
-## Support
+1. Clone o repositório
+2. Instale as dependências: `npm install`
+3. Configure o banco de dados no arquivo `app.module.ts`
+4. Execute a aplicação: `npm run start:dev`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+------
 
-## Stay in touch
+<br>
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 7. Colaboradores
 
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+`@ZarathosFreya`
+`@Beatriz-Rodrigues-P`
+`@brunop-lima`
+`@emilyestvz`
+`@fern-menezes`
+`@Josadack`
+`@VictorPestana`
