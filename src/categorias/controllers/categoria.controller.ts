@@ -26,6 +26,12 @@ export class CategoriaController{
         return this.categoriaService.findByCategoria(categoria)
     }
 
+    @Get("/descricao/:descricao")
+    @HttpCode(HttpStatus.OK)
+    findByDescricao(@Param("descricao")descricao:string):Promise<Categoria[]>{
+        return this.categoriaService.findByDescricao(descricao)
+    }
+
     @Post()
     @HttpCode(HttpStatus.CREATED)
     create(@Body()categoria:Categoria):Promise<Categoria>{
