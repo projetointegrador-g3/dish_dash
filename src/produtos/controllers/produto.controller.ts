@@ -43,4 +43,11 @@ export class ProdutoController{
     delete(@Param ('id', ParseIntPipe) id: number){
         return this.produtoService.delete(id)
     }
+
+    // Buscar avançada por produtos saudaveis 
+    @Get('saudavel/:saudavel')
+    @HttpCode(HttpStatus.OK)
+    findBySearch(): Promise<Produto[]>{
+        return this.produtoService.findBySearch()
+    }
 }

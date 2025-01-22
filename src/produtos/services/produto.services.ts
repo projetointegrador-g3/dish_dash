@@ -7,22 +7,28 @@ import { Produto } from "../entities/produto.entity";
 export class ProdutoService{
     constructor(
         @InjectRepository(Produto)
-        private pordutoReposiroy: Repository<Produto>
+        private produtoRepository: Repository<Produto>
     ){}
 
     async findAll(): Promise<Produto[]>{
-        return this.pordutoReposiroy.find({
-            relations: {categoria: true}
+        return this.produtoRepository.find({
+            relations: {
+                categoria: true,
+                usuario: true,
+            }
         })
     }
 
 
    async findById(id: number): Promise<Produto>{
-     const produto = await this.pordutoReposiroy.findOne({
+     const produto = await this.produtoRepository.findOne({
             where: {
                 id
             },
-            relations: {categoria: true}
+            relations: {
+                categoria: true,
+                usuario: true,
+            }
         })
 
         if(!produto)
@@ -32,11 +38,15 @@ export class ProdutoService{
     }
 
     async findByName(nome: string): Promise<Produto[]>{
-        const produto = await  this.pordutoReposiroy.find({
+        const produto = await  this.produtoRepository.find({
             where: {
                 nome: ILike(`%${nome}%`)
             },
-            relations: {categoria: true}
+            relations: {
+                categoria: true,
+                usuario: true,
+
+            }
         })
         if (produto.length === 0) {  
             throw new HttpException(`⚠️ Nenhum resultado encontrado com o ${nome}`, HttpStatus.NOT_FOUND);  // Trate o erro conforme necessário  
@@ -48,20 +58,29 @@ export class ProdutoService{
 
     async create(produto: Produto): Promise<Produto>{
 
-        return await this.pordutoReposiroy.save(produto)
+        return await this.produtoRepository.save(produto)
     }
 
     async update(produto: Produto): Promise<Produto>{
 
         await this.findById(produto.id)
 
-        return await this.pordutoReposiroy.save(produto)
+        return await this.produtoRepository.save(produto)
     }
 
     
     async delete(id: number): Promise<DeleteResult>{
         await this.findById(id)
 
-        return await this.pordutoReposiroy.delete(id)
+        return await this.produtoRepository.delete(id)
         }
+
+    // Método buscar alimentos saudáveis
+    async findBySearch(): Promise<Produto[]>{
+
+        return await this.produtoRepository.createQueryBuilder('produto')
+        .innerJoinAndSelect('produto.categoria', 'categoria')
+        .where('categoria.categoria = :categoria', { categoria: 'Saudável'})
+        .getMany(); 
+    }
 }
