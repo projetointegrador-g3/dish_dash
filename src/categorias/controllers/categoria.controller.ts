@@ -14,7 +14,7 @@ export class CategoriaController{
         return this.categoriaService.findAll()
     }
 
-    @Get("/id")
+    @Get("/:id")
     @HttpCode(HttpStatus.OK)
     findByID(@Param("id", ParseIntPipe)id:number):Promise<Categoria>{
         return this.categoriaService.findByID(id)
@@ -24,6 +24,12 @@ export class CategoriaController{
     @HttpCode(HttpStatus.OK)
     findByCategoria(@Param("categoria")categoria:string):Promise<Categoria[]>{
         return this.categoriaService.findByCategoria(categoria)
+    }
+
+    @Get("/descricao/:descricao")
+    @HttpCode(HttpStatus.OK)
+    findByDescricao(@Param("descricao")descricao:string):Promise<Categoria[]>{
+        return this.categoriaService.findByDescricao(descricao)
     }
 
     @Post()

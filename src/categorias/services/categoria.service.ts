@@ -13,14 +13,14 @@ export class CategoriaService{
 
     async findAll():Promise<Categoria[]>{
         return this.categoriaRepository.find({
-            relations:{}
+            relations:{produto: true}
         })
     }
 
     async findByID(id:number):Promise<Categoria>{
         const categoria=await this.categoriaRepository.findOne({
             where:{id},
-            relations:{}
+            relations:{produto: true}
         })
 
         if(!categoria)
@@ -31,7 +31,14 @@ export class CategoriaService{
     async findByCategoria(categoria:string):Promise<Categoria[]>{
         return this.categoriaRepository.find({
             where:{categoria:ILike(`%${categoria}%`)},
-            relations:{}
+            relations:{produto: true}
+        })
+    }
+
+    async findByDescricao(descricao:string):Promise<Categoria[]>{
+        return this.categoriaRepository.find({
+            where:{descricao:ILike(`%${descricao}%`)},
+            relations:{produto: true}
         })
     }
 
