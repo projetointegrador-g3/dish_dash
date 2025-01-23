@@ -72,7 +72,12 @@ export class ProdutoService{
     async delete(id: number): Promise<DeleteResult>{
         await this.findById(id)
 
-        return await this.produtoRepository.delete(id)
+        const del = await this.produtoRepository.delete(id)
+
+        if(id)
+           throw new HttpException("Produto Deletado com Sucesso! ✔", HttpStatus.OK)
+        return del
+
         }
 
     // Método buscar alimentos saudáveis
