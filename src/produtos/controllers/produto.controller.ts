@@ -50,4 +50,10 @@ export class ProdutoController{
     findBySearch(): Promise<Produto[]>{
         return this.produtoService.findBySearch()
     }
-}
+
+    @Get('/promocao/:promo')  
+    @HttpCode(HttpStatus.OK)  
+    async getProdutosEmPromocao(): Promise<{ nome: string; preco: number; categoria: string }[]> {  
+        return this.produtoService.getProdutosEmPromocao();  
+    }  
+}  

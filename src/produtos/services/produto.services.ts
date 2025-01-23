@@ -77,10 +77,26 @@ export class ProdutoService{
 
     // Método buscar alimentos saudáveis
     async findBySearch(): Promise<Produto[]>{
-
         return await this.produtoRepository.createQueryBuilder('produto')
         .innerJoinAndSelect('produto.categoria', 'categoria')
         .where('categoria.categoria = :categoria', { categoria: 'Saudável'})
         .getMany(); 
     }
+
+    
+    async getProdutosEmPromocao(): Promise<{nome: string; preco: number; categoria: string }[]> {  
+        const results = await this.produtoRepository.createQueryBuilder('produto')  
+            .innerJoin('produto.categoria', 'categoria') 
+            .where('produto.preco < :preco', { preco: 19.99 })  
+            .select(['produto.nome AS Produto', 'produto.preco AS Preco', 'categoria.categoria AS categoria'])  
+            .getRawMany();  
+    
+        if (results.length === 0) {  
+            throw new HttpException('🚫 Nenhum produto em promoção encontrado.', HttpStatus.NOT_FOUND);  
+        }  
+    
+        return results;
+    
+    }  
+
 }

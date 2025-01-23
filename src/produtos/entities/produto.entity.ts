@@ -30,7 +30,7 @@ export class Produto {
     @ManyToOne(() => Categoria, (categoria) => categoria.produto, {
         onDelete: "CASCADE"
     })
-    categoria: Categoria
+    categoria: Categoria;
     // Relacionamento com Usuario
     @ManyToOne (() => Usuario, (usuario) => usuario.produto, {
         onDelete: "CASCADE"
