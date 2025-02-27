@@ -7,7 +7,7 @@ import { CategoriaModule } from '../categorias/categoria.module';
 
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Usuario]), forwardRef(() => CategoriaModule),], 
+  imports: [TypeOrmModule.forFeature([Usuario])], 
   providers: [UsuarioService],
   controllers: [UsuarioController],
   exports: [TypeOrmModule],
