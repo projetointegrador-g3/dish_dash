@@ -4,6 +4,7 @@ import { Categoria } from "../../categorias/entities/categoria.entity";
 import { Usuario } from "../../usuarios/entities/usuario.entity";
 import { ApiProperty } from "@nestjs/swagger";
 import { NumericTransformer } from "../../util/numericTransformer";
+import { forwardRef } from "@nestjs/common";
 
 @Entity({name: 'tb_produtos'})
 export class Produto {
@@ -13,6 +14,7 @@ export class Produto {
 
     @IsNotEmpty()
     @Column({length: 100, nullable: false})
+    @ApiProperty()
     nome: string;
     
     @IsNumber({ maxDecimalPlaces: 2 })
@@ -32,11 +34,12 @@ export class Produto {
     info_nutricionais: string;
 
     // Relacionamento com Categoria
-    @ApiProperty() 
-    @ManyToOne(() => Categoria, (categoria) => categoria.produto, {
-        onDelete: "CASCADE"
-    })
-    categoria: Categoria;
+    @ManyToOne(() => Categoria, (categoria) => categoria.produto, {  
+        onDelete: "CASCADE",  
+        lazy: true // Ativa o lazy loading  
+    })  
+    categoria: Promise<Categoria>;  
+
 
 
     // Relacionamento com Usuario
