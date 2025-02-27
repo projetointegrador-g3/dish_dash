@@ -23,7 +23,9 @@ export class Categoria{
     descricao:string
 
     @ApiProperty() 
-    @OneToMany(() => Produto, (produto) => produto.categoria)
+    @OneToMany(() => Produto, (produto) => produto.categoria, {
+        lazy: true 
+    })
     produto: Produto[];
 
 }

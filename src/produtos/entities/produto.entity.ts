@@ -2,7 +2,6 @@ import { IsNotEmpty, IsNumber } from "class-validator";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Categoria } from "../../categorias/entities/categoria.entity";
 import { Usuario } from "../../usuarios/entities/usuario.entity";
-
 import { ApiProperty } from "@nestjs/swagger";
 import { NumericTransformer } from "../../util/numericTransformer";
 
