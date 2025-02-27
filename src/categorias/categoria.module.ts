@@ -10,6 +10,6 @@ import { ProdutoModule } from "../produtos/produto.module";
     forwardRef(() => ProdutoModule),],
     controllers:[CategoriaController],
     providers:[CategoriaService],
-    exports:[TypeOrmModule, CategoriaService],
+    exports:[CategoriaService],
 })
 export class CategoriaModule{}
