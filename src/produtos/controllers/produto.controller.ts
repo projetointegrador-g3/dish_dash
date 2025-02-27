@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
 import { ProdutoService } from "../services/produto.services";
 import { Produto } from "../entities/produto.entity";
+import { ApiTags } from "@nestjs/swagger";
 
 @Controller('/produtos')
+@ApiTags('Postagem')
 export class ProdutoController{
     constructor(
         private readonly produtoService: ProdutoService

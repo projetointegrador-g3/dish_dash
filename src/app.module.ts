@@ -6,6 +6,7 @@ import { UsuarioModule } from './usuarios/usuario.module';
 import { ProdutoModule } from './produtos/produto.module';
 import { Usuario } from './usuarios/entities/usuario.entity';
 import { Categoria } from './categorias/entities/categoria.entity';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { Categoria } from './categorias/entities/categoria.entity';
     CategoriaModule,
     ProdutoModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
