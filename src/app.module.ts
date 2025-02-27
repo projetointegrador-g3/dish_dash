@@ -20,6 +20,7 @@ import { AppController } from './app.controller';
       },
       synchronize: true,
       autoLoadEntities: true,
+
     }),
     UsuarioModule,
     CategoriaModule,
