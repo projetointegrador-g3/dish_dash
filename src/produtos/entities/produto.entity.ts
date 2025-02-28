@@ -33,19 +33,19 @@ export class Produto {
     @ApiProperty() 
     info_nutricionais: string;
 
-    // Relacionamento com Categoria
+    /* Não mexer no relacioanamento*/
+
+  // Relacionamento com Categoria
+    @ApiProperty({type: () => Categoria}) 
     @ManyToOne(() => Categoria, (categoria) => categoria.produto, {  
-        onDelete: "CASCADE",  
-        lazy: true // Ativa o lazy loading  
-    })  
-    categoria: Promise<Categoria>;  
-
-
-
-    // Relacionamento com Usuario
-    @ApiProperty() 
-    @ManyToOne (() => Usuario, (usuario) => usuario.produto, {
         onDelete: "CASCADE"
-    })
-    usuario: Usuario;
+    }) 
+    categoria: Categoria; 
+  
+    // Relacionamento com Usuario  
+    @ApiProperty({type: () => Usuario})   
+    @ManyToOne (() => Usuario, (usuario) => usuario.produto, {  
+        onDelete: "CASCADE"  
+    })  
+    usuario: Usuario;  
 }
