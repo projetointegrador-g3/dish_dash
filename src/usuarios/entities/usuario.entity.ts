@@ -18,7 +18,6 @@ export class Usuario {
     nome: string
 
     @IsEmail()
-    @IsNotEmpty()
     @Column({length: 255, nullable: false })
     @ApiProperty({example: "email@email.com.br"}) 
     usuario: string
