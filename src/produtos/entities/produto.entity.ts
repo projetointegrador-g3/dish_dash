@@ -43,9 +43,9 @@ export class Produto {
 
 
     // Relacionamento com Usuario
-    //@ApiProperty() 
-    //@ManyToOne (() => Usuario, (usuario) => usuario.produto, {
-       // onDelete: "CASCADE"
-   // })
-   // usuario: Usuario;
+    @ApiProperty() 
+    @ManyToOne (() => Usuario, (usuario) => usuario.produto, {
+        onDelete: "CASCADE"
+    })
+    usuario: Usuario;
 }
