@@ -29,6 +29,7 @@ export class Produto {
     foto: string;
     
     /*Implementação no banco de dados*/
+     @ApiProperty() 
     @Column({ type: "int", nullable: true, default: 0 })
     curtir: number
 
