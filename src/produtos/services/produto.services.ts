@@ -104,4 +104,19 @@ export class ProdutoService{
     
     }  
 
+        /*Criando o método para curti o produto*/
+        async curtir(id: number): Promise<Produto> {
+
+        let buscaProduto = await this.findById(id);
+
+        if (!buscaProduto)
+            throw new HttpException('Produto não encontrado!', HttpStatus.NOT_FOUND);
+
+        let novaCurtida = buscaProduto.curtir + 1;
+
+        return await this.produtoRepository.save({
+            ...buscaProduto,
+            curtir: novaCurtida
+        });
+    }
 }
