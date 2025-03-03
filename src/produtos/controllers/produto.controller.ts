@@ -58,4 +58,11 @@ export class ProdutoController{
     async getProdutosEmPromocao(): Promise<{ nome: string; preco: number; categoria: string }[]> {  
         return this.produtoService.getProdutosEmPromocao();  
     }  
+
+    /*Chamada para o método, e rota do método.*/
+    @Put('/curtir/:id')
+    @HttpCode(HttpStatus.OK)
+    curtir(@Param('id') id: number): Promise<Produto> {
+	return this.produtoService.curtir(id);
+}
 }  
