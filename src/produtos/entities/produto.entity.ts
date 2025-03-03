@@ -27,6 +27,10 @@ export class Produto {
     @Column({length: 5000})
     @ApiProperty() 
     foto: string;
+    
+    /*Implementação no banco de dados*/
+    @Column({ type: "int", nullable: true, default: 0 })
+    curtir: number
 
     @IsNotEmpty()
     @Column({length: 255, nullable: false})
